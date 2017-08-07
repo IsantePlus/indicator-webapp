@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indicator Bridge</title>
+    <script src="/openmrs/scripts/jquery/jquery.min.js?v=2.0.5" type="text/javascript" ></script>
+    <script>
+        $.getJSON( "manifest.webapp", function( json ) {
+            var apiBaseUrl = json.activities.openmrs.href + "/ws/rest/v1";
+            var response={};
+            $.ajax({url: apiBaseUrl+"/session", success: function(result){
+              // console.log(JSON.stringify(result))
+                response=result;
+                if(!result.authenticated) {
+                    window.location.href='/openmrs';
+                    return;
+                }
+                $.getJSON( "indicator.json", function( ijson ) {
+                    var indicatorUrl = ijson.url;
+                    window.location.href=indicatorUrl + "?isante_session=" + JSON.stringify(response);
+                });
+            }});
+
+
+        } );
+    </script>
+</head>
+<body>
+<h4>Redirecting ...</h4>
+
+</body>
+</html>

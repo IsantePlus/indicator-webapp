@@ -1,0 +1,24 @@
+{
+  "version": "0.1",
+  "name": "iSante indicator Bridge",
+  "description": "This is a bridge for the iSante php based indicators portal",
+  "launch_path": "index.html",
+  "icons": {
+    "16": "images/omrs-button.png",
+    "48": "images/omrs-button.png",
+    "128": "images/omrs-button.png"
+  },
+  "developer": {
+    "name": "Femi Olowonefa",
+    "url": "http://feminefa.com"
+  },
+  "default_locale": "en",
+  "activities": {
+    "openmrs": {
+      "href": "*"
+    },
+    "indicators": {
+      "href":"http://feminefa.com/indicators/"
+    }
+  }
+}
